@@ -1,40 +1,42 @@
-package server;
+package model;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AllPatients {
+public class ReportedPatients {
 
-    private List<Patient> patients = new ArrayList<Patient>();
-
-    public void addPatient(Patient patient){
-        for(Patient p : patients) {
-            if(p.getHealthInsuranceNumber().equals(patient.getHealthInsuranceNumber())){
-                return;
-            }
-        }
-        patients.add(patient);
-    }
+    private List<Patient> patients = new ArrayList<>();
 
     public List<Patient> getPatients() {
         return patients;
     }
 
+    public boolean addPatient(Patient patient){
+
+        for(Patient p : patients) {
+            if(p.getHealthInsuranceNumber().equals(patient.getHealthInsuranceNumber())){
+                return false;
+            }
+        }
+        patients.add(patient);
+        return true;
+    }
+
+
     public List<Patient> search(String surname) {
-        List<Patient> searchResult = new ArrayList<Patient>();
+        List<Patient> searchResult = new ArrayList<>();
         for(Patient p : patients) {
             if(p.getSurname().equals(surname)){
                 searchResult.add(p);
             }
         }
-        System.out.println(searchResult.size());
         return searchResult;
     }
 
     public void changeHealthStatus(String healthInsuranceNumber){
         for(Patient p : patients) {
             if(p.getHealthInsuranceNumber().equals(healthInsuranceNumber)){
-                p.setHealthStatus("Zarazen");
+                p.setHealthStatus(Configuration.CONTAGIOUS);
                 return;
             }
         }

@@ -1,7 +1,7 @@
 
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Registracija korisnika</title>
 
     <style>
@@ -24,24 +24,24 @@
 <body>
 
     <h2>Registracija korisnika</h2>
-    <form method="get">
+    <form method="get" action="http://localhost:9000/web-covid-19/http/patient-reporting">
         <table style="width:400px">
             <tr style="left: auto">
                 <td>Broj zdravstvenog osiguranja:</td>
-                <td><input type="text" name="zdravstveniKarton"/></td>
+                <td><input type="text" name="healthInsuranceNumber"/></td>
             </tr>
             <tr>
                 <td>Ime pacijenta:</td>
-                <td><input type="text" name="ime" /></td>
+                <td><input type="text" name="name" /></td>
             </tr>
             <tr>
                 <td>Prezime pacijenta:</td>
-                <td><input type="text" name="prezime"/></td>
+                <td><input type="text" name="surname"/></td>
 
             </tr>
             <tr>
                 <td>Datum rodjenja:</td>
-                <td><input type="date" name="datum" id="datum"/></td>
+                <td><input type="date" name="dateOfBirthday" id="datum"/></td>
 
             </tr>
 
@@ -56,7 +56,7 @@
             </tr>
             <tr>
                 <td>Datum rodjenja:</td>
-                <td><select name="zdravstveniStatus" id="zdravstveniStatus">
+                <td><select name="healthStatus">
                     <option value="Bez_simptoma">Bez simptoma </option>
                     <option value="Sa_simptomima">Sa simptomima</option>
                     <option value="Zarazen">Zarazen</option>
@@ -64,17 +64,8 @@
                 </select></td>
             </tr>
             <tr class="send">
-                <td >Http server:</td>
-                <td class="button"><input  type="submit" formaction="http://localhost:9000/web-covid-19/http/pregled-pacijenata" value="posalji"></td>
-            </tr>
-            <tr class="send">
-                <td>JSP i Servlet:</td>
-                <td class="button" onclick="window.location='http://localhost:8080/web-covid-19/proba.html'"><input type="submit" value="posalji"></td>
-
-            </tr>
-            <tr class="send">
-                <td>REST:</td>
-                <td class="button"><input type="button" value="REST"></td>
+                <td>Http server:</td>
+                <td><input type="submit" value="posalji"></td>
             </tr>
 
         </table>
@@ -88,6 +79,6 @@
 
 
 
-    <a href="index.html">Nazad</a>
+    <a href="http://localhost:8080/web-covid-19/index.html">Nazad na pocetnu</a>
 </body>
 </html>

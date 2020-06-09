@@ -1,7 +1,4 @@
-package server;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+package model;
 
 public class ValidationPatient {
 
@@ -14,15 +11,16 @@ public class ValidationPatient {
         return false;
     }
 
-    private boolean isValidHealthInsuranceNumber(String healthInsuranceNumber) {
-        return healthInsuranceNumber.matches("[A-Z]{3}[0-9]{5}");
+    public boolean isValidHealthInsuranceNumber(String healthInsuranceNumber) {
+        return healthInsuranceNumber.matches("[A-Z]{3}/[0-9]{5}");
     }
 
-    private boolean isValidSurname(String surname) {
+
+    public boolean isValidSurname(String surname) {
         return surname.matches(namePattern);
     }
 
-    private boolean isValidName(String name) {
+    public boolean isValidName(String name) {
         return name.matches(name);
     }
 }

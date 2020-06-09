@@ -1,6 +1,5 @@
-package server;
+package model;
 
-import java.util.Date;
 
 public class Patient {
 
@@ -49,6 +48,10 @@ public class Patient {
         this.healthStatus = healthStatus;
     }
 
+    public void changeHealthInsuranceNumber() {
+        healthInsuranceNumber = healthInsuranceNumber.replace("%2F", "/");
+    }
+
     @Override
     public String toString() {
         return "Patient{" +
@@ -60,4 +63,6 @@ public class Patient {
                 ", healthStatus='" + healthStatus + '\'' +
                 '}';
     }
+
+
 }
